@@ -4,6 +4,7 @@ import { redirect } from 'next/navigation';
 
 import prismadb from '@/lib/prismadb';
 import Navbar from '@/app/(dashboard)/components/navbar';
+import ThemeProvider from '@/providers/theme-provider';
 
 interface DashboardLayoutType {
   children: React.ReactNode;

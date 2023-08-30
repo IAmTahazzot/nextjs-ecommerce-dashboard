@@ -102,7 +102,7 @@ export const ProductForm: React.FC<ProductFormProps> = ({
 
       if (initialData) {
         await axios.patch(
-          `/api/stores/${params.storeId}/products/${params.colorId}`,
+          `/api/stores/${params.storeId}/products/${params.productId}`,
           data,
         );
       } else {
@@ -227,7 +227,8 @@ export const ProductForm: React.FC<ProductFormProps> = ({
                 </FormItem>
               )}
             />
-
+          </div>
+          <div className={'md:grid md:grid-cols-3 gap-8'}>
             <FormField
               control={form.control}
               name='categoryId'
@@ -262,8 +263,6 @@ export const ProductForm: React.FC<ProductFormProps> = ({
                 </FormItem>
               )}
             />
-          </div>
-          <div className={'md:grid md:grid-cols-3 gap-8'}>
             <FormField
               control={form.control}
               name='sizeId'
@@ -350,6 +349,26 @@ export const ProductForm: React.FC<ProductFormProps> = ({
                     <FormLabel>Archive?</FormLabel>
                     <FormDescription>
                       Product will be archived, It can be changed later.
+                    </FormDescription>
+                  </div>
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name='isFeatured'
+              render={({ field }) => (
+                <FormItem className='flex flex-row items-start space-x-3 space-y-0 rounded-md border p-4'>
+                  <FormControl>
+                    <Checkbox
+                      checked={field.value}
+                      onCheckedChange={field.onChange}
+                    />
+                  </FormControl>
+                  <div className='space-y-1 leading-none'>
+                    <FormLabel>Feature?</FormLabel>
+                    <FormDescription>
+                      Product will be featured, It can be changed later.
                     </FormDescription>
                   </div>
                 </FormItem>

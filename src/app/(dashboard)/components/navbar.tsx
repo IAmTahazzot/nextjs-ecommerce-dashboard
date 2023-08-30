@@ -3,6 +3,7 @@ import Menu from '@/app/(dashboard)/components/menu';
 import StoreSwitcher from '@/app/(dashboard)/components/store-switch';
 import { redirect } from 'next/navigation';
 import prismadb from '@/lib/prismadb';
+import Theme from '@/app/(dashboard)/components/theme';
 
 const Navbar = async () => {
   const { userId } = auth();
@@ -23,6 +24,7 @@ const Navbar = async () => {
         <StoreSwitcher items={stores} />
         <Menu />
         <div className='ml-auto flex items-center space-x-4'>
+          <Theme />
           <UserButton afterSignOutUrl={'/'} />
         </div>
       </div>
